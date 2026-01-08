@@ -132,3 +132,31 @@ Refs: #{issue}
 1. Forward (implementation)
 2. Reverse (rollback)
 3. Risk Assessment (data loss warning)
+
+---
+
+## M-27: Product Registry Protocol (MEDIUM)
+
+**Rule:** READMEの**作成・削除・重要更新**時、`docs/products_index.md` を同期更新。
+
+**Trigger:**
+
+- README.md の新規作成
+- README.md の削除
+- README.md のタイトル、ステータス、概要の変更
+
+**Status Definition:**
+
+| Emoji | Status | Meaning |
+|---|---|---|
+| 📝 | Planning | 設計中、未着手 |
+| 🚧 | In Progress | 開発中 |
+| ✅ | Released | 完成、公開済み |
+| 🔒 | Archived | 凍結、保守停止 |
+| ❌ | Deprecated | 非推奨、削除予定 |
+
+**Process:**
+
+1. README変更を検出
+2. インデックス対応行を更新（なければ追加）
+3. 両方を同じレスポンスで出力

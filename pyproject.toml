@@ -16,6 +16,7 @@ line-length = 100
 src = ["src", "tests"]
 
 # 有効にするルール (厳選)
+[tool.ruff.lint]
 select = [
     "E",      # 文法エラー (最重要)
     "F",      # 論理エラー (未使用変数など)
@@ -25,19 +26,23 @@ select = [
     "B",      # バグになりやすいパターン
     "SIM",    # 簡潔に書ける箇所
     "ANN",    # 型ヒント (設計思想の強制)
+    "D",      # Docstrings (Google Style)
 ]
 
 # 無視するルール
 ignore = [
-    "ANN101",  # self の型ヒント (不要)
-    "ANN102",  # cls の型ヒント (不要)
     "ANN401",  # Any禁止 (別途 06_style.md で管理)
+    "D100",    # モジュールレベルDocstring (必須ではない)
+    "D104",    # package __init__ Docstring
+    "D107",    # Missing docstring in __init__
+    "D400",    # First line should end with a period (Japanese punctuation)
+    "D415",    # First line should end with a period, question mark, or exclamation point
 ]
 
 # ============================================================
 # ディレクトリ別の緩和ルール (作業効率のため)
 # ============================================================
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 # テストコードは型ヒント・Docstring を緩和
 "tests/*" = ["ANN", "D"]
 # スクリプト類も同様
@@ -51,3 +56,9 @@ ignore = [
 [tool.ruff.lint.isort]
 known-first-party = ["src"]
 force-single-line = false
+
+# ============================================================
+# Docstring Style
+# ============================================================
+[tool.ruff.lint.pydocstyle]
+convention = "google"
