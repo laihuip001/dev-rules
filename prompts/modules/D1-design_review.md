@@ -2,7 +2,7 @@
 id: D-1
 modes: [review]
 role: Constructor
-trigger: ["設計書", "レビュー", "どう思う", "精査", "implementation_plan"]
+# trigger: ["設計書", "レビュー", "どう思う", "精査", "implementation_plan"]  # Future: IDE integration
 ---
 
 # Design Review (Constructor's Lens)
@@ -55,6 +55,9 @@ trigger: ["設計書", "レビュー", "どう思う", "精査", "implementation
 - 分割すべきか？（タスクが大きすぎないか？）
 
 ---
+
+> [!IMPORTANT]
+> 以下のフォーマット以外での出力は禁止。自由形式での回答は不可。
 
 ## Output Format
 
