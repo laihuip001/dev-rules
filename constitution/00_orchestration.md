@@ -43,7 +43,7 @@ version: "3.0"
 **Every response ends with:**
 
 > [!TIP]
-> **Next Step Recommendation:** I recommend applying `{Module_ID}` ({Module_Name}) to {Reason}.
+> **次の一手:** `{Module_ID}` — {理由}
 
 ---
 
