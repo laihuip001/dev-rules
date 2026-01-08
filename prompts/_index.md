@@ -85,8 +85,10 @@ graph TD
 
 ---
 
-## Optimizations Applied
+## Optimization Protocol (v1.0)
 
-- YAML frontmatter (`id:`, `modes:`)
-- Unified audit/fix modules
-- XML → Markdown flattening
+- **Structural Unification**: Audit (監査) and Fix (修正) modules combined (e.g. C-4-5).
+- **Aesthetic Flattening**: Replace XML deeply nested tags with Markdown to reduce tokens (~50% reduction).
+- **Pre-Implementation Audit**: Always run C-3 (Structural Audit) before coding.
+- **Native Invocation**: Optimize for copy-paste execution.
+- **Portfolio-Ready**: Enforce `.gitignore` and `README.md` from Day 1.
