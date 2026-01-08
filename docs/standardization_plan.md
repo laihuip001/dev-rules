@@ -47,7 +47,7 @@ Linterルールと重複しない「アーキテクチャ上の意思決定」�
 ## Implementation Roadmap
 
 1. ✅ **`rules/constitution/06_style.md` を作成:** コアとなるアーキテクチャルールと、明示的な模倣ポイント付きのLiving Sample参照を定義する。
-2. ⬜ **`pyproject.toml` を設定:** 適切な除外設定を含む `ruff` ルールを設定する。
+2. ✅ **`pyproject.toml` を設定:** 適切な除外設定を含む `ruff` ルールを設定する。
 3. ⬜ **`prompts/modules/C4C5-code.md` を更新:** `06_style.md` への準拠チェックを追加する。
 4. ✅ **`constitution/00_orchestration.md` を更新:** タスク開始時のコンテキスト読み込み手順を追加する。
 
