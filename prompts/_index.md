@@ -72,6 +72,7 @@ graph TD
 | **M-1** | [Agent Command Compiler](file:///c:/Users/laihuip001/Downloads/dev/rules/prompts/modules/M1-agent_command_compiler.md) | Execution |
 | **R-1** | [Reverse Engineering](file:///c:/Users/laihuip001/Downloads/dev/rules/prompts/modules/R1-reverse_engineering.md) | Execution |
 | **X-1/2** | [Divergence & Convergence](file:///c:/Users/laihuip001/Downloads/dev/rules/prompts/modules/X1X2-divergence_convergence.md) | Execution |
+| **D-1** | [Design Review](file:///c:/Users/laihuip001/Downloads/dev/rules/prompts/modules/D1-design_review.md) | Review |
 | **Rec** | [Model Recommender](file:///c:/Users/laihuip001/Downloads/dev/rules/prompts/modules/recommender.md) | Meta |
 
 ---

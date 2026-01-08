@@ -10,8 +10,7 @@
 
 | ファイル | 目的 | 模倣ポイント | 期限 |
 |---|---|---|---|
-| `src/core/dto.py` | DTOの模範 | `@dataclass(frozen=True)`, `from_dict` ファクトリ | Phase 1完了時 |
-| `src/config.py` | 設定管理の模範 | 環境変数フォールバック, 型安全アクセス | Phase 1完了時 |
+| (なし) | - | - | - |
 
 ---
 

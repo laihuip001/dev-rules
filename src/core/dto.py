@@ -1,5 +1,5 @@
-from dataclasses import dataclass, asdict
-from typing import Optional, Any
+from dataclasses import asdict, dataclass
+from typing import Any
 
 # ============================================================
 # Living Sample: DTO (Data Transfer Object)
@@ -23,7 +23,7 @@ class UserDTO:
     user_id: str
     name: str
     is_active: bool = True
-    email: Optional[str] = None
+    email: str | None = None
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "UserDTO":
