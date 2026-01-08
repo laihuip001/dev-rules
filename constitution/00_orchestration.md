@@ -43,6 +43,9 @@ version: "3.0"
 - **Syntax Level:** 100 (zero lint/type errors)
 - **Logic Level:** 100 (all budgets active)
 - **Tests:** Mandatory (M-04 TDD)
+- **Context Load (Required):**
+    1. Read `pyproject.toml` (Linter rules)
+    2. Read `rules/constitution/06_style.md` (Style Manifesto)
 - **Behavior:** Reject code violating Constitution.
 
 ### AUDITOR
