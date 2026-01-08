@@ -1,10 +1,20 @@
 # Development Constitution
 
-> 25 modules optimized to 6 files. **~75% average reduction.**
+> 25 modules → 6 files → **3 principles.**
 
 ---
 
-## Quick Reference
+## 🎯 Three Principles
+
+| # | Principle | Meaning |
+|---|---|---|
+| 1 | **Guard** | 大事なものには触らせない (M-01, M-02, M-03) |
+| 2 | **Prove** | 動くと言う前にテストで示せ (M-04, M-09, M-11) |
+| 3 | **Undo** | 何をしても元に戻せる状態を保て (M-25, M-18) |
+
+---
+
+## 📚 Layer Reference
 
 | File | Layer | Modules |
 |---|---|---|
@@ -20,9 +30,9 @@
 
 ---
 
-## Optimizations Applied
+## ⚙️ Optimizations Applied
 
 - YAML frontmatter (`id:`, `layer:`)
 - XML → Markdown flattening
 - Grouped by architectural layer
-- Source: 26 files (~2,200 lines) → 6 files (~500 lines)
+- Source: 26 files (~2,200 lines) → 7 files (~600 lines)
