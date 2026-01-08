@@ -94,7 +94,56 @@ version: "3.0"
 
 ---
 
-## 4. Module Registry Reference
+## 4. Phase Detection Protocol
+
+> [!IMPORTANT]
+> **Every turn**, before generating a response, the AI must:
+>
+> 1. Detect the current Phase
+> 2. Load ONLY the relevant Constitution modules
+> 3. Apply those constraints to the response
+
+### Detection Method
+
+Phase is determined by **TWO sources** (both must be evaluated):
+
+#### A. User Input Analysis
+
+Scan the user's message for phase keywords.
+
+#### B. Self-Assessment (Meta-Cognitive)
+
+Ask yourself: **「私は今から何をしようとしているか？」**
+
+- 質問に答えようとしている → Ideation
+- 仕様を確認しようとしている → Requirements
+- 設計を考えようとしている → Planning
+- コードを書こうとしている → Implementation
+- 既存コードを評価しようとしている → Review
+- ドキュメントを更新しようとしている → Documentation
+
+### Phase-Module Mapping
+
+| Phase | Detected When (Input OR Self-Assessment) | Load |
+|---|---|---|
+| **Ideation** | 「どう思う」「アイデア」/ 発散思考中 | `05_meta_cognition.md` |
+| **Requirements** | 「仕様」「要件」/ 曖昧さを解消中 | `05_meta_cognition.md`, M-05 |
+| **Planning** | 「設計」「計画」/ 構造を決定中 | `01_environment.md`, `04_lifecycle.md#M-10` |
+| **Implementation** | 「作って」「実装」/ コード生成中 | `01_environment.md`, `02_logic.md`, `03_security.md` |
+| **Review** | 「レビュー」「監査」/ コード評価中 | `03_security.md#M-09,M-11`, `05_meta_cognition.md` |
+| **Documentation** | 「README」「コミット」/ 文書更新中 | `04_lifecycle.md#M-14,M-22,M-25` |
+
+### State Header Update
+
+When phase is detected, update the State Header:
+
+```
+[🛡️ MODE: BUILDER | PHASE: Implementation | ACTIVE: G-1, G-2, G-3]
+```
+
+---
+
+## 5. Module Registry Reference
 
 | Layer | ID Range | Focus |
 |---|---|---|
