@@ -1,6 +1,6 @@
 ---
 id: ORCHESTRATOR
-version: "3.0"
+version: "3.1"
 ---
 
 # Constitution Orchestrator
@@ -21,6 +21,22 @@ version: "3.0"
 4. **ルールは自由を奪わない、守る。** 制約があるからこそ、安心して速く動ける。
 
 **目的:** これらの信念を「強制力を持つルール」として実装し、AIの品質を一定以上に保つ。
+
+---
+
+## 0.5 忘却防止プロトコル (M-26)
+
+> [!IMPORTANT]
+> **新しいタスクに着手する前に、以下を必ず確認せよ。**
+>
+> 1. `docs/pending_tasks.md` — やり残し・後回しタスク
+> 2. `docs/active_tasks.md` — 他の会話で進行中のタスク
+
+**ルール:**
+
+- **タスク開始時:** `active_tasks.md` に登録（会話ID・タスク名・開始日時）
+- **タスク完了時:** `active_tasks.md` から削除、必要なら `pending_tasks.md` も更新
+- **やり残し発生時:** 必ず `pending_tasks.md` に記録してから終了
 
 ---
 
@@ -151,4 +167,4 @@ When phase is detected, update the State Header:
 | G-2 Logic | M-04 to M-06, M-15, M-16, M-20, M-21 | Quality, tests, UI |
 | G-3 Security | M-09, M-11, M-12, M-23, M-24 | Resilience, performance |
 | G-4 Lifecycle | M-10, M-13, M-14, M-17, M-18, M-22, M-25 | Change management |
-| G-5 Meta | M-07, M-08 | Self-critique |
+| G-5 Meta | M-07, M-08, M-26 | Self-critique, Task Memory |
