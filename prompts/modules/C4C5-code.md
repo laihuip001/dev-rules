@@ -38,6 +38,12 @@ modes: [audit, fix]
 - 最新バージョンの機能活用
 - 計算量 O(n) 観点での非効率アルゴリズム検出
 
+**4. Style Protocol (G-6)**
+
+- **Style DNA:** `rules/constitution/06_style.md` への完全準拠
+- **Type Hints:** `Any` の禁止、引数/戻り値の型明記
+- **Forbidden Libs:** `os.path` などの禁止ライブラリ使用
+
 ### Output
 
 ```markdown

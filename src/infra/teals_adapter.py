@@ -1,13 +1,10 @@
 
 import os
-import logging
-from pathlib import Path
-from sqlalchemy import text
-
 import sys
 import logging
-from typing import Dict, Any, Optional
 from pathlib import Path
+from typing import Dict, Any, Optional
+from sqlalchemy import text
 
 # Add TEALS submodule to sys.path to support absolute imports (e.g. "from models import ...")
 teals_path = Path(__file__).parent / "teals"
@@ -50,14 +47,15 @@ class TEALSAdapter:
         self.read_only_mode = False
     
     def log_action(self, action: str, table: str, 
-                   before: Dict[str, Any] = None, after: Dict[str, Any] = None) -> bool:
+                   before: Dict[str, Any] = None, after: Dict[str, Any] = None,
+                   ai_model: str = None) -> bool:
         if self.read_only_mode:
             logging.critical("TEALS: read-only mode active, skipping log")
             return False
             
         try:
             session = self.Session()
-            add_log(session, USER_ID, action, table, before, after)
+            add_log(session, USER_ID, action, table, before, after, ai_model=ai_model)
             session.close()
             return True
         except Exception as e:
