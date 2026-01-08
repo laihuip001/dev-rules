@@ -30,13 +30,33 @@ Based on the adversarial review and second-order thinking analysis, the followin
 
 ### 3. The Enforcer: Living Samples
 
-**Action:** Reference "Living Samples" instead of static "Golden" files.
+**Action:** Reference "Living Samples" with explicit "Imitation Targets".
 
-- **Concept:** Update `06_style.md` to point to specific *existing* high-quality files in `src/` (e.g., "For DTOs, mimic `src/core/dto.py`").
+- **Concept:** Update `06_style.md` to point to specific *existing* high-quality files in `src/`.
+- **Constraint (Crucial):** Never just point to a file. Explicitly list **WHAT** to mimic to avoid ambiguity (The "Confused Junior" Defense).
+  - *Bad:* "Mimic `src/core/dto.py`."
+  - *Good:* "Refer to `src/core/dto.py`. Specifically mimic: 1) The `from_dict` factory pattern, 2) The use of `frozen=True` dataclasses."
 - **Benefit:** Prevents "Documentation Drift" where static samples become outdated. The AI learns from the current, working codebase.
+
+## Devil's Advocate Mitigation Strategy (Risk Control)
+
+### Security: Living Sample Poisoning
+
+- **Risk:** If a referenced sample file contains a vulnerability, the AI will propagate it.
+- **Mitigation:** Referenced files must be strictly audited. Any change to a "Living Sample" file triggers a mandatory security review.
+
+### Performance: Token Budget
+
+- **Risk:** Loading too many rules/samples consumes context window.
+- **Mitigation (Phase 2):** Implement "On-Demand Loading". Only load relevant style sections for the current task (e.g., only load UI rules when working on Frontend).
+
+### Clarity: Ambiguity
+
+- **Risk:** AI might copy irrelevant parts (e.g., import order vs logic structure).
+- **Mitigation:** As noted in Step 3, use "Targeted Imitation" instructions.
 
 ## Action Plan (Next Steps)
 
-1. **Draft `rules/constitution/06_style.md`**: Define the core architectural rules and point to living samples.
+1. **Draft `rules/constitution/06_style.md`**: Define the core architectural rules and point to living samples with explicit imitation targets.
 2. **Configure `pyproject.toml`**: Set up `ruff` rules with appropriate exclusions.
 3. **Update Prompts**: Modify `prompts/modules/C4C5-code.md` to include a check for compliance with `06_style.md`.
