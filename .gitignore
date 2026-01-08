@@ -1,0 +1,18 @@
+# Environment & Secrets
+.env
+*.env.*
+secrets/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project-specific
+docs/Flow_AI_Sync/
+settings.json
+*.log
