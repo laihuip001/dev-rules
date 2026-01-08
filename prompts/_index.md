@@ -16,6 +16,37 @@ Paste module content into chat. It executes against previous output.
 | C-4-5 | audit → fix |
 | C-6-7 | audit → fix |
 
+## Dependency Graph
+
+```mermaid
+graph TD
+    %% Workflow Categories
+    subgraph Meta [Meta-Cognition]
+        Rec[Recommender] -->|Architect| Plan[Planning]
+        Rec -->|Constructor| Exec[Execution]
+    end
+
+    subgraph Plan [Planning & Analysis]
+        E1[E-1: Roadmap] --> A9[A-9: 1st Principles]
+        A9 --> X1[X-1: Diverge]
+    end
+
+    subgraph Exec [Execution & Coding]
+        X1 -->|Synthesize| X2[X-2: Converge]
+        X2 --> C45[C-4-5: Code Audit/Fix]
+        C45 --> C3[C-3: Structural Audit]
+    end
+
+    subgraph QA [Quality Assurance]
+        C3 --> Q1[Q-1: Feynman]
+        C3 --> Q4[Q-4: Aesthetic]
+    end
+
+    %% Key Relationships
+    Rec -.->|Initial| E1
+    C12[C-1-2: Adversarial] -.->|Critique| Plan
+```
+
 ---
 
 ## Modules
@@ -41,6 +72,7 @@ Paste module content into chat. It executes against previous output.
 | **M-1** | [Agent Command Compiler](file:///c:/Users/laihuip001/Downloads/dev/rules/prompts/modules/M1-agent_command_compiler.md) | Execution |
 | **R-1** | [Reverse Engineering](file:///c:/Users/laihuip001/Downloads/dev/rules/prompts/modules/R1-reverse_engineering.md) | Execution |
 | **X-1/2** | [Divergence & Convergence](file:///c:/Users/laihuip001/Downloads/dev/rules/prompts/modules/X1X2-divergence_convergence.md) | Execution |
+| **Rec** | [Model Recommender](file:///c:/Users/laihuip001/Downloads/dev/rules/prompts/modules/recommender.md) | Meta |
 
 ---
 
