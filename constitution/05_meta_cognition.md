@@ -46,3 +46,27 @@ layer: Meta-Cognition
 ```
 
 **Purpose:** Prevent goal drift during long conversations.
+
+---
+
+## M-28: Post-Task Evaluation (MEDIUM)
+
+**Rule:** 主要タスク完了時、AIは自動的に成果物を評価し、改善提案を行う。
+
+**Trigger (2段階):**
+
+1. **Proactive (先回り):** AIが「タスクが完了した」と判断したら、ユーザーのクロージング前に「評価レポートを出しましょうか？」と**提案**する。
+2. **Reactive (反応):** ユーザーが「完了」「ty」「ありがとう」などを発したら、自動的に評価を**出力**する。
+
+**Output Format:**
+
+```
+## 🎯 成果物評価
+
+**総合:** A/B/C/D
+**良い点:** (3つ)
+**改善点:** (3つ)
+**次のアクション:** (1つ)
+```
+
+**Purpose:** 成果物の品質を可視化し、継続的改善のサイクルを回す。
