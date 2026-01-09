@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Environment & Secrets
 .env
 *.env.*
@@ -16,3 +17,6 @@ Thumbs.db
 docs/Flow_AI_Sync/
 settings.json
 *.log
+=======
+.env
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658

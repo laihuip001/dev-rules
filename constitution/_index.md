@@ -18,6 +18,7 @@
 
 | File | Layer | Modules |
 |---|---|---|
+<<<<<<< HEAD
 | [00_orchestration](file:///c:/Users/laihuip001/Downloads/dev/rules/constitution/00_orchestration.md) | Core | State, Modes, Butler |
 | [01_environment](file:///c:/Users/laihuip001/Downloads/dev/rules/constitution/01_environment.md) | G-1 Iron Cage | M-01, M-02, M-03, M-19* |
 | [02_logic](file:///c:/Users/laihuip001/Downloads/dev/rules/constitution/02_logic.md) | G-2 Logic Gate | M-04, M-05, M-06, M-15, M-16, M-20, M-21 |
@@ -25,6 +26,15 @@
 | [04_lifecycle](file:///c:/Users/laihuip001/Downloads/dev/rules/constitution/04_lifecycle.md) | G-4 Lifecycle | M-10, M-13, M-14, M-17, M-18, M-22, M-25 |
 | [05_meta_cognition](file:///c:/Users/laihuip001/Downloads/dev/rules/constitution/05_meta_cognition.md) | G-5 Meta | M-07, M-08 |
 | [06_style](file:///c:/Users/laihuip001/Downloads/dev/rules/constitution/06_style.md) | G-6 Style | Code DNA, Type Hints, Naming |
+=======
+| [00_orchestration](file:///c:/Users/laihuip001/開発（太郎）/dev-rules/constitution/00_orchestration.md) | Core | State, Modes, Butler |
+| [01_environment](file:///c:/Users/laihuip001/開発（太郎）/dev-rules/constitution/01_environment.md) | G-1 Iron Cage | M-01, M-02, M-03, M-19* |
+| [02_logic](file:///c:/Users/laihuip001/開発（太郎）/dev-rules/constitution/02_logic.md) | G-2 Logic Gate | M-04, M-05, M-06, M-15, M-16, M-20, M-21 |
+| [03_security](file:///c:/Users/laihuip001/開発（太郎）/dev-rules/constitution/03_security.md) | G-3 Shield | M-09, M-11, M-12, M-23, M-24 |
+| [04_lifecycle](file:///c:/Users/laihuip001/開発（太郎）/dev-rules/constitution/04_lifecycle.md) | G-4 Lifecycle | M-10, M-13, M-14, M-17, M-18, M-22, M-25 |
+| [05_meta_cognition](file:///c:/Users/laihuip001/開発（太郎）/dev-rules/constitution/05_meta_cognition.md) | G-5 Meta | M-07, M-08 |
+| [06_style](file:///c:/Users/laihuip001/開発（太郎）/dev-rules/constitution/06_style.md) | G-6 Style | Code DNA, Type Hints, Naming |
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 
 > *M-19 (Container First) is **Phase 2 only** — suspended during Termux development.
 

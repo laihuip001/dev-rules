@@ -1,6 +1,10 @@
 ---
 id: A-9
 trigger: manual
+<<<<<<< HEAD
+=======
+enforcement_level: L2
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 ---
 
 # A-9: First Principles (第一原理思考)

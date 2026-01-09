@@ -1,6 +1,10 @@
 ---
 id: G-3
 layer: Shield (Robustness & Security)
+<<<<<<< HEAD
+=======
+enforcement_level: L1
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 ---
 
 # G-3: Security Protocol

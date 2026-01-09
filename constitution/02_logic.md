@@ -1,6 +1,10 @@
 ---
 id: G-2
 layer: Logic Gate (Cognition & Quality)
+<<<<<<< HEAD
+=======
+enforcement_level: L1
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 ---
 
 # G-2: Logic Protocol

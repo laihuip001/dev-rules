@@ -1,6 +1,10 @@
 ---
 id: C-6-7
 modes: [audit, fix]
+<<<<<<< HEAD
+=======
+enforcement_level: L1
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 ---
 
 # C-6/C-7: Prompt Engineering (プロンプトエンジニアリング)

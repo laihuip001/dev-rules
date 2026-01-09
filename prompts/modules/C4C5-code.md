@@ -1,6 +1,10 @@
 ---
 id: C-4-5
 modes: [audit, fix]
+<<<<<<< HEAD
+=======
+enforcement_level: L1
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 ---
 
 # C-4/C-5: Code Review (コードレビュー)

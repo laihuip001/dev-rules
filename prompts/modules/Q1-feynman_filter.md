@@ -1,6 +1,10 @@
 ---
 id: Q-1
 trigger: manual
+<<<<<<< HEAD
+=======
+enforcement_level: L2
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 ---
 
 # Q-1: Feynman Filter (単純性原理)

@@ -1,6 +1,10 @@
 ---
 id: G-4
 layer: Lifecycle (Ops & Maintenance)
+<<<<<<< HEAD
+=======
+enforcement_level: L2
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 ---
 
 # G-4: Lifecycle Protocol

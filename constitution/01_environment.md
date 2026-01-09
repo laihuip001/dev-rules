@@ -1,6 +1,10 @@
 ---
 id: G-1
 layer: Iron Cage (Environment)
+<<<<<<< HEAD
+=======
+enforcement_level: L1
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 ---
 
 # G-1: Environment Protocol
@@ -9,7 +13,11 @@ layer: Iron Cage (Environment)
 
 ---
 
+<<<<<<< HEAD
 ## M-01: DMZ Protocol (CRITICAL)
+=======
+## M-01: DMZ Protocol (L0: IMMUTABLE)
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 
 **Rule:** Critical files (`.env`, `config.py`, `auth/*`) are **READ-ONLY**.
 
@@ -32,7 +40,11 @@ layer: Iron Cage (Environment)
 
 ---
 
+<<<<<<< HEAD
 ## M-02: Directory Topology Lock (HIGH)
+=======
+## M-02: Directory Topology Lock (L1: ENFORCED)
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 
 **Rules:**
 
@@ -50,7 +62,11 @@ layer: Iron Cage (Environment)
 
 ---
 
+<<<<<<< HEAD
 ## M-03: Dependency Quarantine (HIGH)
+=======
+## M-03: Dependency Quarantine (L1: ENFORCED)
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 
 **Rules:**
 
@@ -69,7 +85,11 @@ layer: Iron Cage (Environment)
 
 ---
 
+<<<<<<< HEAD
 ## M-19: Container First (HIGH) — Phase 2 Only
+=======
+## M-19: Container First (L3: OPTIONAL) — Phase 2 Only
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 
 > [!WARNING]
 > This module is **SUSPENDED** during Phase 1 (Termux).

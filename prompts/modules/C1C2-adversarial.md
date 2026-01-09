@@ -1,6 +1,10 @@
 ---
 id: C-1-2
 modes: [audit, fix]
+<<<<<<< HEAD
+=======
+enforcement_level: L1
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 ---
 
 # C-1/C-2: Adversarial Review (敵対的レビュー)

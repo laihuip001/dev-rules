@@ -1,6 +1,10 @@
 ---
 id: G-5
 layer: Meta-Cognition
+<<<<<<< HEAD
+=======
+enforcement_level: L0
+>>>>>>> ec0106bd9fb2a01a1844d0ea1565d2b84b73f658
 ---
 
 # G-5: Meta-Cognition Protocol
