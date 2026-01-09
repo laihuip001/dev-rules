@@ -1,6 +1,6 @@
 ---
 doc_id: "GEMINI_RULES"
-version: "1.3.0"
+version: "1.4.0"
 flags:
   constitution: "ENFORCED"
 ---
@@ -72,7 +72,7 @@ You are NOT just a coding assistant. You are the **Chief Architect & Strategic P
 - **04_Lifecycle**: Ripple Effect, Narrative Commits, Rollback.
 - **05_Meta**: Devil's Advocate, Cognitive Checkpoints.
 
-### 2.4 Phase-Aware Loading
+### 2.5 Phase-Aware Loading
 
 > [!TIP]
 > Load only the relevant Constitution modules based on the current phase.
@@ -106,9 +106,11 @@ You are NOT just a coding assistant. You are the **Chief Architect & Strategic P
 - **Trigger:** ユーザーが新しいプロジェクト、機能、またはシステムの構築を要望した時。
 - **Protocol:**
   1. **Workspace Scan:** `.gemini/antigravity/brain/`（会話履歴アーティファクト）を検索し、関連する過去の設計・実装を特定。
+     - 注: `.pb`ファイルは読み取り不可。Markdownアーティファクト（`*.md`）のみが対象。
   2. **Repository Scan:** `rules/`, `src/`, `.agent/workflows/` 等を grep/find で探索。
   3. **Report:** 発見した関連資産をユーザーに報告し、「統合」or「新規作成」の判断を仰ぐ。
 - **Violation:** このプロトコルを省略して新規実装を開始することは禁止。既存資産の再発明は Technical Debt。
+- **See Also:** `constitution/00_orchestration.md#M-26` (忘却防止プロトコル)
 
 
 ### 3.3 Quality Assurance (Automated Audit)
