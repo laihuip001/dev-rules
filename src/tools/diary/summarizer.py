@@ -2,6 +2,7 @@
 Gemini要約モジュール
 
 Git履歴をGemini APIで要約し、構造化された日記エントリを生成。
+新しい google-genai SDK を使用。
 """
 
 import os
@@ -9,7 +10,7 @@ import json
 from typing import TypedDict
 
 try:
-    import google.generativeai as genai
+    from google import genai
 except ImportError:
     genai = None
 
@@ -60,25 +61,29 @@ def summarize_commits(commits: list[dict], api_key: str | None = None) -> DiaryS
     """
     if genai is None:
         raise ImportError(
-            "google-generativeai is required. "
-            "Install with: pip install google-generativeai"
+            "google-genai is required. "
+            "Install with: pip install google-genai"
         )
     
     api_key = api_key or os.environ.get("GEMINI_API_KEY")
     if not api_key:
         raise ValueError("GEMINI_API_KEY is required")
     
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    # 新しいSDKではClientオブジェクトを使用
+    client = genai.Client(api_key=api_key)
     
     # コミット情報をテキスト化
     commits_text = _format_commits_for_prompt(commits)
     
-    response = model.generate_content(
-        [DIARY_SYSTEM_PROMPT, f"今日のコミット履歴:\n{commits_text}"],
-        generation_config=genai.types.GenerationConfig(
-            response_mime_type="application/json"
-        )
+    # プロンプトを結合
+    full_prompt = f"{DIARY_SYSTEM_PROMPT}\n\n今日のコミット履歴:\n{commits_text}"
+    
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=full_prompt,
+        config={
+            "response_mime_type": "application/json"
+        }
     )
     
     try:

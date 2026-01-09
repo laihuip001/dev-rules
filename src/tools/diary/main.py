@@ -48,6 +48,11 @@ def main():
         default=None,
         help="Gemini API key (default: use GEMINI_API_KEY env var)"
     )
+    parser.add_argument(
+        "--skip-ai",
+        action="store_true",
+        help="Skip AI summarization, use raw git log as diary content"
+    )
     
     args = parser.parse_args()
     
@@ -75,19 +80,23 @@ def main():
     
     print(f"   Found {len(commits)} commit(s)")
     
-    # Step 2: Summarize with Gemini
-    print("🤖 Summarizing with Gemini...")
-    try:
-        summary = summarize_commits(commits, api_key=args.api_key)
-    except ImportError as e:
-        print(f"❌ Missing dependency: {e}")
-        sys.exit(1)
-    except ValueError as e:
-        print(f"❌ Configuration error: {e}")
-        sys.exit(1)
-    except Exception as e:
-        print(f"❌ Summarization failed: {e}")
-        sys.exit(1)
+    # Step 2: Summarize (with AI or fallback)
+    if args.skip_ai:
+        print("📋 Creating summary from Git log (AI skipped)...")
+        summary = _create_fallback_summary(commits)
+    else:
+        print("🤖 Summarizing with Gemini...")
+        try:
+            summary = summarize_commits(commits, api_key=args.api_key)
+        except ImportError as e:
+            print(f"❌ Missing dependency: {e}")
+            sys.exit(1)
+        except ValueError as e:
+            print(f"❌ Configuration error: {e}")
+            sys.exit(1)
+        except Exception as e:
+            print(f"❌ Summarization failed: {e}")
+            sys.exit(1)
     
     print("   Summary generated!")
     
@@ -116,6 +125,24 @@ def main():
     
     print()
     print("🎉 Done!")
+
+
+def _create_fallback_summary(commits: list) -> dict:
+    """AI無しでGitログから基本的なサマリーを生成"""
+    file_changes = []
+    for c in commits:
+        for f in c.get("files", []):
+            file_changes.append(f"[{f['status']}] {f['path']} ({c['message'][:50]})")
+    
+    decisions = [c["message"] for c in commits]
+    
+    return {
+        "summary": f"今日は{len(commits)}件のコミットを行いました。",
+        "file_changes": file_changes,
+        "decisions": decisions,
+        "learnings": ["(AI要約をスキップしました)"],
+        "next_steps": []
+    }
 
 
 if __name__ == "__main__":
