@@ -98,7 +98,7 @@ dev-rules/
 3. **コード作業**
    - `src/` 配下で実装
    - `tests/` でテスト追加
-   - `diary/` に日記が自動生成される
+   - `diary/` に作業ログを記録（[テンプレート使用](diary/TEMPLATE.md)）
 
 ---
 
