@@ -26,6 +26,9 @@
 | [05_meta_cognition](./05_meta_cognition.md) | G-5 Meta | メタ認知、自己批判 |
 | [06_style](./06_style.md) | G-6 Style (Python) | 型ヒント、命名規則、Docstring |
 | [06_style_js](./06_style_js.md) | G-6 Style (JS/GAS) | JavaScript/GAS 向けスタイル |
+| [07_testing](./07_testing.md) | G-7 Quality | テスト規約、カバレッジ、CI/CD |
+| [08_git](./08_git.md) | G-8 Workflow | Git運用、コミット形式、ブランチ戦略 |
+| [09_structure](./09_structure.md) | G-9 Architecture | ファイル構成、モジュール分割 |
 
 > *M-19 (Container First) は **Phase 2 のみ** — Termux開発中は保留。
 

@@ -25,3 +25,13 @@ description: Self-Correction Protocol - Generate, Audit, Refine
 ## 4. Error Handling
 
 - ルール違反を検知したら、直ちに停止し `[Undo]` 思考を行う。
+
+---
+
+## 5. Milestone Check (マイルストーン到達時)
+
+- [ ] **Feynman Filter:** 成果物を専門用語なしで解説したか？
+- [ ] **Proposal:** 「専門用語なしの解説」をユーザーに提案したか？
+
+> [!IMPORTANT]
+> 大きな区切り（ドキュメント完成、機能実装完了等）では必ずこのチェックを実施せよ。

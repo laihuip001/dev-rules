@@ -184,3 +184,58 @@ pytest tests/test_processor.py -v
 2. **最小再現コードを作成** — 不要な要素を削ぎ落とす
 3. **修正前にテストを書く** — 回帰防止
 4. **修正後、全テスト実行** — 副作用確認
+
+---
+
+## 9. CI/CD連携
+
+> Push時に自動でテストを実行し、失敗したらマージをブロックする。
+
+### GitHub Actions 設定例 (Python)
+
+```yaml
+# .github/workflows/test.yml
+name: Test
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pytest tests/ --cov=src --cov-fail-under=80
+```
+
+### GAS (Clasp + Jest)
+
+> [!TIP]
+> ローカル開発環境が整っている場合は、[Clasp](https://github.com/google/clasp) + Jest で本格的なテストが可能。
+
+```bash
+# Clasp セットアップ
+npm install -g @google/clasp
+clasp login
+clasp create --type standalone
+
+# Jest でテスト
+npm install --save-dev jest
+npx jest
+```
+
+---
+
+## 10. Living Samples
+
+> 説明より実例。以下を**模倣の起点**とせよ。
+
+| 用途 | 参照ファイル | 模倣ポイント |
+|---|---|---|
+| Python テスト | `tests/test_collector.py` | AAA パターン、mock 使用 |
+| GAS テスト | `automation/gas/test_sync.gs` | runAllTests パターン |
+
+> [!IMPORTANT]
+> Living Sample への変更はレビュー必須。
