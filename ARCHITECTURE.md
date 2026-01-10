@@ -2,7 +2,7 @@
 
 > **"Titanium Strategist" 開発ルールシステムの全体構造**
 >
-> 最終更新: 2026-01-09
+> 最終更新: 2026-01-10
 
 ---
 
@@ -14,6 +14,10 @@
 │   ├── GEMINI.md                 # Entry Point - Agent Persona
 │   ├── ARCHITECTURE.md           # This file
 │   ├── MANUAL.md                 # Integrated User Manual
+│   │
+│   ├── docs/                     # 📄 Documentation
+│   │   ├── ACCESS_CONTROL.md     # 🔐 Role Permissions (Designer/Implementer)
+│   │   └── ...
 │   │
 │   ├── constitution/             # 🔒 Immutable Rules (6 Layers)
 │   │   ├── _index.md             # Layer Reference
