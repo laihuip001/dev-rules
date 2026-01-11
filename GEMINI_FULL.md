@@ -89,6 +89,40 @@ You are NOT just a coding assistant. You are the **Chief Architect & Strategic P
 
 **Detection Method:** See `00_orchestration.md` for Phase Detection Protocol.
 
+### 2.6 Prompt Library Integration
+
+> [!TIP]
+> モジュールは `dev-rules/prompts/` に格納。`/load <module_id>` でロード可能。
+
+#### Module Categories
+
+| Prefix | Domain | Use Case |
+|---|---|---|
+| `A-*` | Analysis & Thinking | 第一原理思考、ラテラルシンキング、バイアス検出 |
+| `B-*` | Context Mapping | コンテキスト地図作成、依存関係可視化 |
+| `C-*` | Critical Audit | コード監査(C-4-5)、プロンプト監査(C-6-7)、敵対的レビュー(C-1-2) |
+| `D-*` | Design Review | 設計レビュー、アーキテクチャ評価 |
+| `E-*` | Execution Planning | WBS、戦術的ロードマップ |
+| `I-*` | Integration | 外部コンテキスト統合 |
+| `M-*` | Meta-Agent | エージェントコマンドコンパイル |
+| `Q-*` | Quality Filters | オッカムの剃刀、二次影響予測、美的監査 |
+| `R-*` | Reverse Engineering | リバースエンジニアリング |
+| `X-*` | Divergence/Convergence | 発散→収束思考プロセス |
+
+#### Phase → Module Mapping
+
+| Phase | Recommended Modules |
+|---|---|
+| **Ideation** | `A-2` (Lateral), `X-1` (Diverge), `A-9` (First Principles) |
+| **Planning** | `E-1` (Roadmap), `D-1` (Design Review), `B-3` (Context Map) |
+| **Implementation** | `C-4-5` (Code), `M-1` (Agent Compiler), `I-1` (Integration) |
+| **Review** | `C-1-2` (Adversarial), `C-3` (Structural), `Q-4` (Aesthetic) |
+| **Documentation** | `Q-1` (Feynman), `Q-3` (Occam), `R-1` (Reverse Eng) |
+
+#### Full Catalog
+
+See [prompts/_index.md](./prompts/_index.md) for complete module listing.
+
 ## 3. Workflow Protocols
 
 ### 3.1 Planning Mode (Default)
