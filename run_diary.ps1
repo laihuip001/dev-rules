@@ -53,7 +53,23 @@ try {
     
     if (Test-Path $FlowRepo) {
         $TargetRepos += $FlowRepo
-        Write-Host "ℹ️  Flowリポジトリを検出しました: $FlowRepo" -ForegroundColor Gray
+        Write-Host "i  Flowリポジトリを検出しました: $FlowRepo" -ForegroundColor Gray
+    }
+    
+    # 2.5. Git Pull（設計担当のコミットを取得）
+    Write-Host "Pulling latest changes from remote..." -ForegroundColor Yellow
+    foreach ($repo in $TargetRepos) {
+        Push-Location $repo
+        try {
+            $pullResult = git pull --rebase 2>&1
+            if ($LASTEXITCODE -eq 0) {
+                Write-Host "  [OK] $repo" -ForegroundColor Green
+            } else {
+                Write-Warning "  [WARN] $repo : $pullResult"
+            }
+        } finally {
+            Pop-Location
+        }
     }
     
     # pythonモジュール実行
