@@ -9,38 +9,58 @@
 ## Directory Structure
 
 ```
-開発（太郎）/
-├── dev-rules/                    # 🛡️ Development Constitution & Prompts
-│   ├── GEMINI.md                 # Entry Point - Agent Persona
-│   ├── ARCHITECTURE.md           # This file
-│   ├── MANUAL.md                 # Integrated User Manual
-│   │
-│   ├── constitution/             # 🔒 Immutable Rules (6 Layers)
-│   │   ├── _index.md             # Layer Reference
-│   │   ├── 00_orchestration.md   # Core: State, Modes
-│   │   ├── 01_environment.md     # G-1: DMZ, Directory Lock
-│   │   ├── 02_logic.md           # G-2: TDD, Complexity Budget
-│   │   ├── 03_security.md        # G-3: Red Teaming, Chaos Monkey
-│   │   ├── 04_lifecycle.md       # G-4: Ripple Effect, Rollback
-│   │   ├── 05_meta_cognition.md  # G-5: Devil's Advocate
-│   │   └── 06_style.md           # G-6: Code DNA, Naming
-│   │
-│   └── prompts/                  # 📦 Reusable Modules (19+)
-│       ├── _index.md             # Module Reference
-│       ├── modules/              # Categorized Prompts
-│       │   ├── C*-*.md           # Critical (Audit/Fix)
-│       │   ├── Q*-*.md           # Quality
-│       │   ├── A*-*.md           # Analysis
-│       │   └── ...               # Execution, Review, Meta
-│       └── system/               # System Instructions
-│           ├── cold_mirror.md
-│           └── qa_inquisitor.md  # ← Canonical Inquisitor
+dev-rules/                          # 🛡️ Development Constitution & Prompts
+├── GEMINI.md                       # Entry Point - Agent Persona (symlinked to ~/.gemini/)
+├── GEMINI_FULL.md                  # Full version of rules (~240 lines)
+├── ARCHITECTURE.md                 # This file
+├── MANUAL.md                       # Integrated User Manual
 │
-└── .agent/workflows/             # ⚡ Antigravity Slash Commands
-    ├── /execution-prime          # System Instructions Generator
-    ├── /gdr-converter            # Deep Research Report Converter
-    ├── /inquisitor               # → refs: prompts/system/qa_inquisitor.md
-    └── /prompt-architect         # Prompt Module Auditor
+├── constitution/                   # 🔒 Immutable Rules (7 Layers)
+│   ├── _index.md                   # Layer Reference
+│   ├── 00_orchestration.md         # Core: State, Modes
+│   ├── 01_environment.md           # G-1: DMZ, Directory Lock
+│   ├── 02_logic.md                 # G-2: TDD, Complexity Budget
+│   ├── 03_security.md              # G-3: Red Teaming, Chaos Monkey
+│   ├── 04_lifecycle.md             # G-4: Ripple Effect, Rollback
+│   ├── 05_meta_cognition.md        # G-5: Devil's Advocate
+│   ├── 06_style.md                 # G-6: Code DNA, Naming
+│   └── 07_implementation.md        # G-7: Implementation Rules
+│
+├── prompts/                        # 📦 Reusable Modules (21+)
+│   ├── _index.md                   # Module Reference
+│   ├── README.md                   # Quick start guide
+│   ├── modules/                    # Categorized Prompts (21 files)
+│   │   ├── C*-*.md                 # Critical (Audit/Fix)
+│   │   ├── Q*-*.md                 # Quality
+│   │   ├── A*-*.md                 # Analysis
+│   │   └── ...                     # Execution, Review, Meta
+│   ├── legacy/                     # Deprecated JP prompts
+│   └── system/                     # System Instructions
+│       ├── cold_mirror.md
+│       └── qa_inquisitor.md
+│
+├── src/                            # 🔧 Automation Tools
+│   ├── tools/
+│   │   ├── diary/                  # Dev diary generator
+│   │   │   ├── main.py             # Entry point
+│   │   │   ├── collector.py        # Git commit collector
+│   │   │   ├── summarizer.py       # Gemini summarization
+│   │   │   ├── writer.py           # Markdown writer
+│   │   │   └── publisher.py        # Git publisher
+│   │   └── prompts/                # Prompt utilities
+│   │       ├── add_frontmatter.py
+│   │       └── move_legacy.py
+│   └── infra/                      # Infrastructure scripts
+│
+├── diary/                          # 📓 Auto-generated dev diaries
+│
+├── .agent/workflows/               # ⚡ Antigravity Slash Commands
+│   └── constructor-rules.md        # Implementation workflow
+│
+├── run_diary.ps1                   # Daily diary generation script
+├── setup_schedule.ps1              # Scheduled task registration
+├── .env.example                    # Environment variable template
+└── .gitignore
 ```
 
 ---
@@ -110,10 +130,8 @@ graph TD
 
 | Slash Command | Purpose | Canonical Source |
 |---|---|---|
-| `/execution-prime` | System Instructions を生成 | Self-contained |
-| `/gdr-converter` | Deep Research → Knowledge Artifact 変換 | Self-contained |
-| `/inquisitor` | 品質審問（チャット履歴 vs 指示書） | `prompts/system/qa_inquisitor.md` |
-| `/prompt-architect` | プロンプトモジュールの監査・改善 | Self-contained |
+| `/constructor-rules` | 実装担当の行動規範 | `.agent/workflows/constructor-rules.md` |
+| `/load` | プロンプトモジュールをロード | `.agent/workflows/load.md` (未実装) |
 
 ---
 
@@ -167,5 +185,6 @@ graph TD
 
 | Date | Version | Changes |
 |---|---|---|
+| 2026-01-12 | 2.1.0 | Directory structure updated, src/tools documented, workflows synced |
 | 2026-01-09 | 2.0.0 | Tiered Loading Architecture, Enforcement Levels 追加 |
 | 2026-01-09 | 1.0.0 | Initial architecture documentation |
