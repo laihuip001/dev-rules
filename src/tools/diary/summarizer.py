@@ -110,7 +110,8 @@ def _format_commits_for_prompt(commits: list[dict]) -> str:
     """コミットリストをプロンプト用テキストに変換"""
     lines = []
     for c in commits:
-        lines.append(f"## Commit: {c['hash'][:7]}")
+        repo_prefix = f"[{c.get('repo', 'unknown')}] " if c.get('repo') else ""
+        lines.append(f"## Commit: {repo_prefix}{c['hash'][:7]}")
         lines.append(f"- Date: {c['date']}")
         lines.append(f"- Message: {c['message']}")
         if c.get("files"):

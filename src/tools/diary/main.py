@@ -15,7 +15,7 @@ from datetime import datetime
 # Add parent to path for relative imports
 sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 
-from src.tools.diary.collector import get_today_commits
+from src.tools.diary.collector import collect_commits_from_repos
 from src.tools.diary.summarizer import summarize_commits
 from src.tools.diary.writer import write_diary
 from src.tools.diary.publisher import publish_diary
@@ -26,16 +26,16 @@ def main():
         description="Generate development diary from Git commits"
     )
     parser.add_argument(
-        "--target-repo",
-        type=str,
-        default=".",
-        help="Path to the target repository to analyze"
+        "--target-repos",
+        nargs="+",
+        default=["."],
+        help="Path(s) to target repositories to analyze"
     )
     parser.add_argument(
         "--output-dir",
         type=str,
         default=None,
-        help="Output directory for diary files (default: <repo>/diary)"
+        help="Output directory for diary files (default: ./diary)"
     )
     parser.add_argument(
         "--dry-run",
@@ -57,11 +57,15 @@ def main():
     args = parser.parse_args()
     
     # Resolve paths
-    repo_path = Path(args.target_repo).resolve()
-    output_dir = Path(args.output_dir) if args.output_dir else repo_path / "diary"
+    repo_paths = [Path(p).resolve() for p in args.target_repos]
+    
+    # 出力先は指定がなければカレントディレクトリ配下のdiary
+    # 複数リポジトリの場合、特定のtarget_repoに依存させるのは危険なため、実行場所基準とする
+    current_dir = Path.cwd()
+    output_dir = Path(args.output_dir) if args.output_dir else current_dir / "diary"
     
     print(f"📚 Development Diary Generator")
-    print(f"   Repository: {repo_path}")
+    print(f"   Targets: {[p.name for p in repo_paths]}")
     print(f"   Output: {output_dir}")
     print(f"   Date: {datetime.now().strftime('%Y-%m-%d')}")
     print()
@@ -69,13 +73,13 @@ def main():
     # Step 1: Collect commits
     print("🔍 Collecting today's commits...")
     try:
-        commits = get_today_commits(repo_path)
+        commits = collect_commits_from_repos(repo_paths)
     except Exception as e:
         print(f"❌ Failed to collect commits: {e}")
         sys.exit(1)
     
     if not commits:
-        print("⚠️  No commits found for today. Nothing to summarize.")
+        print("⚠️  No commits found for today in any repository. Nothing to summarize.")
         sys.exit(0)
     
     print(f"   Found {len(commits)} commit(s)")
@@ -86,6 +90,7 @@ def main():
         summary = _create_fallback_summary(commits)
     else:
         print("🤖 Summarizing with Gemini...")
+        print("   (This may take a moment...)")
         try:
             summary = summarize_commits(commits, api_key=args.api_key)
         except ImportError as e:
@@ -110,10 +115,13 @@ def main():
     
     print(f"   Created: {diary_path}")
     
-    # Step 4: Publish to Git
+    # Step 4: Publish to Git (to the repository containing output_dir)
     print("📤 Publishing to Git...")
+    # output_dirを含むリポジトリを検出するのがベストだが、簡易的にカレントを採用
+    publish_repo = current_dir
+    
     try:
-        result = publish_diary(repo_path, diary_path, dry_run=args.dry_run)
+        result = publish_diary(publish_repo, diary_path, dry_run=args.dry_run)
     except Exception as e:
         print(f"❌ Failed to publish: {e}")
         sys.exit(1)
@@ -121,6 +129,11 @@ def main():
     if result["push"]["success"]:
         print("✅ Diary published successfully!")
     else:
+        # Commitなし(変更なし)の場合等はここに来る
+        if result["commit"] and not result["commit"]["success"]:
+             # コミット失敗時
+             pass
+             
         print(f"⚠️  Publish result: {result}")
     
     print()
@@ -131,10 +144,12 @@ def _create_fallback_summary(commits: list) -> dict:
     """AI無しでGitログから基本的なサマリーを生成"""
     file_changes = []
     for c in commits:
+        repo = c.get('repo', 'unknown')
+        msg = c['message'][:50]
         for f in c.get("files", []):
-            file_changes.append(f"[{f['status']}] {f['path']} ({c['message'][:50]})")
+            file_changes.append(f"[{repo}] [{f['status']}] {f['path']} ({msg})")
     
-    decisions = [c["message"] for c in commits]
+    decisions = [f"[{c.get('repo','?')}] {c['message']}" for c in commits]
     
     return {
         "summary": f"今日は{len(commits)}件のコミットを行いました。",

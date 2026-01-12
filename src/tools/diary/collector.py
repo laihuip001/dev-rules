@@ -13,6 +13,7 @@ from typing import TypedDict
 
 class CommitInfo(TypedDict):
     hash: str
+    repo: str
     author: str
     date: str
     message: str
@@ -30,6 +31,7 @@ def get_today_commits(repo_path: str | Path) -> list[CommitInfo]:
         コミット情報のリスト
     """
     repo_path = Path(repo_path)
+    repo_name = repo_path.name
     
     # 当日の開始時刻
     today = datetime.now().strftime("%Y-%m-%d 00:00:00")
@@ -48,7 +50,32 @@ def get_today_commits(repo_path: str | Path) -> list[CommitInfo]:
     if result.returncode != 0:
         raise RuntimeError(f"git log failed: {result.stderr}")
     
-    return _parse_git_log(result.stdout)
+    commits = _parse_git_log(result.stdout)
+    
+    # repo名を追加
+    for c in commits:
+        c["repo"] = repo_name
+        
+    return commits
+
+
+def collect_commits_from_repos(repo_paths: list[Path]) -> list[CommitInfo]:
+    """複数リポジトリからコミットを収集し、日時順にソート"""
+    all_commits = []
+    
+    for path in repo_paths:
+        try:
+            commits = get_today_commits(path)
+            all_commits.extend(commits)
+        except Exception as e:
+            print(f"⚠️ Failed to collect from {path}: {e}")
+            continue
+    
+    # 日時順（新しい順）にソート
+    # date string format: YYYY-MM-DD HH:MM:SS +TZ
+    all_commits.sort(key=lambda x: x["date"], reverse=True)
+    
+    return all_commits
 
 
 def _parse_git_log(raw_output: str) -> list[CommitInfo]:

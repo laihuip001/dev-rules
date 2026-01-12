@@ -47,8 +47,17 @@ Write-Host "🤖 日記生成ツールを実行中..." -ForegroundColor Cyan
 Push-Location $ScriptDir
 
 try {
+    # 対象リポジトリの設定
+    $TargetRepos = @(".")
+    $FlowRepo = "../Flow"
+    
+    if (Test-Path $FlowRepo) {
+        $TargetRepos += $FlowRepo
+        Write-Host "ℹ️  Flowリポジトリを検出しました: $FlowRepo" -ForegroundColor Gray
+    }
+    
     # pythonモジュール実行
-    python -m $ToolScript
+    python -m $ToolScript --target-repos $TargetRepos
     
     if ($LASTEXITCODE -eq 0) {
         Write-Host "`n✅ 完了しました！" -ForegroundColor Green
