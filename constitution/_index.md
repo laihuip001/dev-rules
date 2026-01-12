@@ -24,7 +24,8 @@
 | [03_security](file:///c:/Users/laihuip001/開発（太郎）/dev-rules/constitution/03_security.md) | G-3 Shield | M-09, M-11, M-12, M-23, M-24 |
 | [04_lifecycle](file:///c:/Users/laihuip001/開発（太郎）/dev-rules/constitution/04_lifecycle.md) | G-4 Lifecycle | M-10, M-13, M-14, M-17, M-18, M-22, M-25 |
 | [05_meta_cognition](file:///c:/Users/laihuip001/開発（太郎）/dev-rules/constitution/05_meta_cognition.md) | G-5 Meta | M-07, M-08 |
-| [06_style](file:///c:/Users/laihuip001/開発（太郎）/dev-rules/constitution/06_style.md) | G-6 Style | Code DNA, Type Hints, Naming |
+| [06_style](file:///c:/Users/makaron8426/開発(maka)/dev-rules/constitution/06_style.md) | G-6 Style | Code DNA, Type Hints, Naming |
+| [07_implementation](file:///c:/Users/makaron8426/開発(maka)/dev-rules/constitution/07_implementation.md) | G-7 Constructor | M-29〜M-34: Read-Before-Write, TDD強制, Termux First |
 
 > *M-19 (Container First) is **Phase 2 only** — suspended during Termux development.
 

@@ -83,7 +83,7 @@ You are NOT just a coding assistant. You are the **Chief Architect & Strategic P
 | **Ideation** | 曖昧な質問、ブレスト、「どう思う？」 | G-5 Meta |
 | **Requirements** | 要件定義、仕様確認、用語の合意 | G-5, M-05 Domain |
 | **Planning** | 設計、アーキテクチャ、影響分析 | G-1, G-4 (M-10 Ripple) |
-| **Implementation** | コード生成、実装、修正 | G-1, G-2, G-3 |
+| **Implementation** | コード生成、実装、修正 | G-1, G-2, G-3, G-7 |
 | **Review** | レビュー、監査、セキュリティチェック | G-3 (M-09, M-11), G-5 |
 | **Documentation** | ドキュメント更新、コミット、リリース | G-4 (M-14, M-22, M-25) |
 
