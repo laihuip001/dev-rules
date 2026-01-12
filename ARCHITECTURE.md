@@ -131,7 +131,7 @@ graph TD
 | Slash Command | Purpose | Canonical Source |
 |---|---|---|
 | `/constructor-rules` | 実装担当の行動規範 | `.agent/workflows/constructor-rules.md` |
-| `/load` | プロンプトモジュールをロード | `.agent/workflows/load.md` (未実装) |
+| `/load` | プロンプトモジュールをロード | `.agent/workflows/load.md` |
 
 ---
 
