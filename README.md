@@ -1,12 +1,33 @@
 # dev-rules
 
-> **「Titanium Strategist」開発ルールシステム**
+> **AI-Powered Development Constitution & Prompt Engineering Framework**
 >
-> AIエージェント（Gemini）のための開発憲法・プロンプトライブラリ
+> A systematic approach to AI-assisted software development.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)
+![AI](https://img.shields.io/badge/AI-Gemini%20%7C%20Claude-green.svg)
 
 ---
+
+## 🎯 What is this?
+
+このリポジトリは、**AIエージェント（Gemini/Claude）と協業するための「開発憲法」**です。
+
+| 課題 | このシステムの解決策 |
+|------|---------------------|
+| AIの出力が一貫しない | Constitution（不変ルール）でガードレールを設定 |
+| プロンプトが属人化 | モジュール化されたPrompt Libraryで再利用可能に |
+| 開発履歴が追えない | 自動生成される開発日記（Diary）で追跡可能 |
+
+---
+
+## 🎓 What I Learned (このプロジェクトで得た知見)
+
+1. **プロンプトエンジニアリング** - AIへの指示を構造化・モジュール化する技術
+2. **Constitution設計** - 「やってはいけないこと」を明文化し、AIの暴走を防ぐ
+3. **AI支援開発ワークフロー** - 人間とAIの役割分担（Architect vs Constructor）
+4. **ナレッジマネジメント** - 開発中に生まれた知見を体系的に蓄積する方法
 
 ## 📘 概要
 
