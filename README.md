@@ -10,6 +10,24 @@
 
 ---
 
+## ⚠️ 配置要件（必須）
+
+このリポジトリは以下のパスにクローンすること:
+
+```
+C:\Users\makaron8426\dev\dev-rules
+```
+
+**理由:** グローバル設定（`.gemini/GEMINI.md`）が上記パスを参照する二段階ロック構造を採用しているため。
+
+```
+.gemini/GEMINI.md (KERNEL_LOCK)
+    ↓ view_file で参照
+C:\Users\makaron8426\dev\dev-rules\GEMINI.md (詳細ルール)
+```
+
+---
+
 ## 利用方法
 
 ### 1. グローバル設定（推奨）
