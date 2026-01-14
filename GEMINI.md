@@ -115,15 +115,15 @@ flags:
 
 | ID | Pattern | Symptom | Suggested Module |
 |----|---|---|---|
-| **L-01** | **Circular Reasoning** | 結論が前提を繰り返している (`A` therefore `A`) | `第一原理思考` |
+| **L-01** | **Circular Reasoning** | 結論が前提を繰り返している (`A` therefore `A`) | `A-9` (第一原理思考) |
 | **L-02** | **Causal Leap** | AだからBの因果関係が証明されていない | `論理的背景の補強` |
-| **L-03** | **False Dichotomy** | 2択に見せかけて他の選択肢を隠蔽 | `発散と収束` |
-| **L-04** | **Confirmation Bias** | リスク・反論を一切考慮していない | `敵対的レビュー凸` |
+| **L-03** | **False Dichotomy** | 2択に見せかけて他の選択肢を隠蔽 | `X-1` (発散と収束) |
+| **L-04** | **Confirmation Bias** | リスク・反論を一切考慮していない | `M-07` (Devil's Advocate) |
 | **S-01** | **Fuzzy Verb** | 曖昧動詞の多用 (検討する, 調整する, 適切に) | `回答の解像度向上` |
 | **S-02** | **Buzzword** | 空虚語 (シナジー, パラダイム) | `おべっかの無い評価` |
 | **S-03** | **Missing Quantifier** | 数値・期限が未定義 (多い, 早めに) | `回答の解像度向上` |
-| **P-02** | **Loop/Repetition** | 同一概念の冗長な繰り返し (High Similarity) | `オッカムのカミソリ` |
-| **P-03** | **Scope Creep** | 本題から逸れて無関係な話題に拡大 | `コンテキストの言語化` |
+| **P-02** | **Loop/Repetition** | 同一概念の冗長な繰り返し (High Similarity) | `Q-3` (オッカムのカミソリ) |
+| **P-03** | **Scope Creep** | 本題から逸れて無関係な話題に拡大 | `A-7` (コンテキスト言語化) |
 | **O-01** | **Sandwich Sycophancy** | 批判を賞賛で挟む (Compliment-Critique-Compliment) | `おべっかの無い評価` |
 | **O-04** | **Incomplete Answer** | 入力の疑問点に対し回答数が不足している | `回答の解像度向上` |
 
@@ -143,16 +143,16 @@ flags:
 
 | Phase | Trigger | Load |
 |---|---|---|
-| Planning | 設計、アーキテクチャ | → `/load G-1 G-4` |
-| Implementation | コード生成 | → `/load G-2 G-3` |
-| Review | 監査、チェック | → `/load G-3 G-5` |
+| Planning | 設計、アーキテクチャ | → `/load A-9 D-1` |
+| Implementation | コード生成 | → `/load C-4 A-7` |
+| Review | 監査、チェック | → `/load C-3 M-07` |
 
 ### Manual Load
 
 ```
 /load <module>    # 特定モジュールをロード
 /load C-4         # Code Audit モジュール
-/load G-3         # Security レイヤー
+/load M-30        # Pre-Verify (Security)
 ```
 
 ---
