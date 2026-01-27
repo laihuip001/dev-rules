@@ -120,6 +120,7 @@ dev-rules/
    - `src/` 配下で実装
    - `tests/` でテスト追加
    - `diary/` に作業ログを記録（[テンプレート使用](diary/TEMPLATE.md)）
+   - <!-- MCP Integration Tests: TODO -->
 
 ---
 
